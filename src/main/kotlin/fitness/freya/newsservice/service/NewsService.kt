@@ -10,7 +10,7 @@ import java.util.UUID
 @Service
 class NewsService(val newsRepository: NewsRepository) {
 
-  fun currentNews(): List<News> {
+  fun getCurrentNews(): List<News> {
     val now = LocalDateTime.now()
     return newsRepository.findByValidityFromLessThanEqualAndValidityToGreaterThanEqual(now, now)
   }

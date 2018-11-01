@@ -46,7 +46,7 @@ class NewsServiceTest {
         .thenReturn(allNews)
 
     // when
-    val result = testee.currentNews()
+    val result = testee.getCurrentNews()
 
     //then
     assertThat(result, notNullValue())
