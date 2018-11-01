@@ -17,7 +17,7 @@ class NewsMapper(val validityMapper: ValidityMapper) {
   )
 
   fun map(news: NewsDto): News = News(
-      null,
+      news.id,
       news.title,
       news.teaser,
       news.text,
