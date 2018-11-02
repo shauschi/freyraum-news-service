@@ -52,7 +52,7 @@ pipeline {
 
     stage('build application') {
       agent {
-        docker { image 'openjdk:8-jdk-alpine' }
+        docker { image 'openjdk:8-jdk' }
       }
       steps {
         sh './gradlew clean build'
@@ -61,7 +61,7 @@ pipeline {
 
     stage('test application') {
       agent {
-        docker { image 'openjdk:8-jdk-alpine' }
+        docker { image 'openjdk:8-jdk' }
       }
       steps {
         sh './gradlew test'
@@ -70,7 +70,7 @@ pipeline {
 
     stage('build jar') {
       agent {
-        docker { image 'openjdk:8-jdk-alpine' }
+        docker { image 'openjdk:8-jdk' }
       }
       steps {
         sh './gradlew bootJar'
