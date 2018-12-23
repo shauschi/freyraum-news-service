@@ -46,7 +46,6 @@ class NewsMapperTest {
         "My test title",
         "Teaser",
         "Text",
-        "picture",
         validity
     )
 
@@ -59,7 +58,6 @@ class NewsMapperTest {
     assertThat(result.title, equalTo(news.title))
     assertThat(result.teaser, equalTo(news.teaser))
     assertThat(result.text, equalTo(news.text))
-    assertThat(result.pictureId, equalTo(news.pictureId))
     assertThat(result.validity, equalTo(validityDto))
     verify(validityMapper).map(validity)
     verifyNoMoreInteractions(validityMapper)
@@ -76,7 +74,6 @@ class NewsMapperTest {
         "My test title",
         "Teaser",
         "Text",
-        "picture",
         validityDto
     )
 
@@ -89,7 +86,6 @@ class NewsMapperTest {
     assertThat(result.title, equalTo(news.title))
     assertThat(result.teaser, equalTo(news.teaser))
     assertThat(result.text, equalTo(news.text))
-    assertThat(result.pictureId, equalTo(news.pictureId))
     assertThat(result.validity, equalTo(validity))
     verify(validityMapper).map(validityDto)
     verifyNoMoreInteractions(validityMapper)

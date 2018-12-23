@@ -11,7 +11,7 @@ import javax.sql.DataSource
 class AppConfig(
     @Value("\${spring.datasource.driverClassName:org.postgresql.Driver}")
     private val driverClassName: String,
-    @Value("\${DB_URL:jdbc:postgresql://localhost/freyafitness}")
+    @Value("\${DB_URL:jdbc:postgresql://localhost/freyraum-news}")
     private val dataSourceUrl: String,
     @Value("\${DB_USR:postgres}")
     private val dataSourceUsername: String,

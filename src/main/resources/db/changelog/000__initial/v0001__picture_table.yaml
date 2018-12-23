@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: hauschildt
+      changes:
+      - createTable:
+          columns:
+          - column:
+              name: id
+              type: uuid
+              constraints:
+                primaryKey: true
+                nullable: false
+          - column:
+              name: news_id
+              type: uuid
+              constraints:
+                nullable: false
+          - column:
+              name: size
+              type: varchar(255)
+          - column:
+              name: data
+              type: bytea
+          schemaName: public
+          tableName: picture
+      - addForeignKeyConstraint:
+          baseColumnNames: news_id
+          baseTableName: picture
+          constraintName: fk_picture_news
+          deferrable: true
+          initiallyDeferred: true
+          referencedColumnNames: id
+          referencedTableName: news
+      - addUniqueConstraint:
+          columnNames: news_id, size
+          constraintName: unique_picture_news_id_size
+          schemaName: public
+          tableName: picture

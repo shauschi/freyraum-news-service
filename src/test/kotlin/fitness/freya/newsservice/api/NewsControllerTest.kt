@@ -134,7 +134,6 @@ class NewsControllerTest {
       title,
       "here is a teaser",
       "more text",
-      null,
       Mockito.mock(Validity::class.java))
 
 }

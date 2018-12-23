@@ -1,5 +1,6 @@
 package fitness.freya.newsservice.service
 
+import fitness.freya.newsservice.mapping.NewsMapper
 import fitness.freya.newsservice.model.News
 import fitness.freya.newsservice.model.Validity
 import fitness.freya.newsservice.repository.NewsRepository
@@ -30,6 +31,9 @@ class NewsServiceTest {
 
   @Mock
   lateinit var newsRepository: NewsRepository
+
+  @Mock
+  lateinit var newsMapper: NewsMapper
 
   @Before
   fun setUp() {
@@ -100,7 +104,6 @@ class NewsServiceTest {
         "Tilte of awesome news",
         "Here is a little teaser",
         "The whole story",
-        "007",
         Mockito.mock(Validity::class.java)
     )
     Mockito

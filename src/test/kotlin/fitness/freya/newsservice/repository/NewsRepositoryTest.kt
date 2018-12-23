@@ -54,7 +54,6 @@ class NewsRepositoryTest {
         title,
         "here is a teaser",
         "more text",
-        null,
         valid)
     entityManager.persist(news)
     entityManager.flush()
