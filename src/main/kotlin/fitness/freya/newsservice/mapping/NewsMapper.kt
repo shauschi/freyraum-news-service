@@ -12,7 +12,6 @@ class NewsMapper(val validityMapper: ValidityMapper) {
       news.title,
       news.teaser,
       news.text,
-      news.pictureId,
       validityMapper.map(news.validity)
   )
 
@@ -21,8 +20,14 @@ class NewsMapper(val validityMapper: ValidityMapper) {
       news.title,
       news.teaser,
       news.text,
-      news.pictureId,
       validityMapper.map(news.validity)
+  )
+
+  fun apply(news: News, changes: NewsDto) = news.copy(
+      title =  changes.title,
+      teaser = changes.teaser,
+      text = changes.text,
+      validity = validityMapper.map(changes.validity)
   )
 
 }

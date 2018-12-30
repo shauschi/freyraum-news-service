@@ -21,10 +21,9 @@ data class News(
         strategy = "org.hibernate.id.UUIDGenerator"
     )
     val id: UUID?,
-    val title: String,
-    val teaser: String,
-    val text: String,
-    val pictureId: String?,
+    val title: String?,
+    val teaser: String?,
+    val text: String?,
     @Embedded
     @AttributeOverrides(
         AttributeOverride(name = "from", column = Column(name = "validity_from")),
