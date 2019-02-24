@@ -32,7 +32,7 @@ def mapBranchToDockerImage(branch) {
 }
 
 pipeline {
-  agent nonany
+  agent any
   options {
     skipDefaultCheckout()
   }
