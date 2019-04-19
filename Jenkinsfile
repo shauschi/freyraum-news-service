@@ -26,14 +26,15 @@ pipeline {
     stage('build release candidate') {
       steps {
         sh './gradlew bootJar'
-        sh 'docker build . --file Dockerfile --tag ${APP_NAME}:${RC_TAG}'
-        sh 'docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${RC_TAG}'
+        sh 'docker tag ${APP_NAME} ${DOCKER_REGISTRY}/${APP_NAME}:${RC_TAG}'
+        sh 'docker push ${DOCKER_REGISTRY}/${APP_NAME}:${RC_TAG}'
       }
     }
 
     stage('tag image as ok') {
       steps {
         sh 'docker tag ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${RC_TAG} ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${OK_TAG}'
+        sh 'docker push ${DOCKER_REGISTRY}/${APP_NAME}:${OK_TAG}'
       }
     }
   }
