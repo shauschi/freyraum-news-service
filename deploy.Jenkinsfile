@@ -7,7 +7,7 @@ pipeline {
   parameters {
     choice(name: 'TAG', choices: ['ok', 'rc'], description: 'docker image tag')
     string(name: 'APP_NAME', defaultValue: 'freyraum-news-service', description: 'container name')
-    string(name: 'APP_PORT', defaultValue: '7700', description: 'container port')
+    string(name: 'APP_PORT', defaultValue: '7800', description: 'container port')
   }
   environment {
     DOCKER_REGISTRY = "localhost:5000"
@@ -32,7 +32,7 @@ pipeline {
       steps {
         sh '''
           docker run -d \
-            -p ${APP_PORT}:7700 \
+            -p ${APP_PORT}:7800 \
             --restart=always \
             --name ${APP_NAME} \
             -e DB_URL=${DB_URL} \
