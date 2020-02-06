@@ -32,7 +32,7 @@ pipeline {
       steps {
         sh '''
           docker run -d \
-            -p 7800 \
+            -p 80 \
             --restart=always \
             --name ${APP_NAME} \
             --network=freyraum \
