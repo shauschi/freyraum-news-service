@@ -39,6 +39,7 @@ pipeline {
             -e DB_URL=${DB_URL} \
             -e DB_USR=${DB_USR} \
             -e DB_PSW=${DB_PSW} \
+            -e SPRING_PROFILES_ACTIVE=prod \
             ${DOCKER_REGISTRY}/${APP_NAME}:ok
         '''
       }
