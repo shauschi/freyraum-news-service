@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
-@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
+@CrossOrigin(origins = ["localhost:3333", "www.freya.fitness"], allowedHeaders = ["*"])
 @RestController
 @RequestMapping("/news")
 class NewsController(
