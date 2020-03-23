@@ -3,7 +3,6 @@ package fitness.freya.newsservice.api
 import fitness.freya.newsservice.model.Size
 import fitness.freya.newsservice.service.PictureService
 import org.springframework.core.io.ByteArrayResource
-import org.springframework.core.io.Resource
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -30,7 +29,7 @@ class PictureController(val pictureService: PictureService) {
   @GetMapping("/{size}")
   fun getPicture(
       @PathVariable("id") id: UUID,
-      @PathVariable("size") size: Size): ResponseEntity<Resource> {
+      @PathVariable("size") size: Size): ResponseEntity<ByteArrayResource> {
     val data = pictureService.getPictureData(id, size)
     return if (data != null) {
       ResponseEntity.ok().body(ByteArrayResource(data))

@@ -4,6 +4,7 @@ import fitness.freya.newsservice.mapping.NewsMapper
 import fitness.freya.newsservice.service.NewsService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
@@ -12,10 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.lang.Exception
 import java.util.UUID
-import java.util.stream.Collectors
 
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 @RestController
 @RequestMapping("/news")
 class NewsController(
@@ -35,9 +35,8 @@ class NewsController(
           .body<ErrorDto>(ErrorDto(exception.message!!))
 
   @GetMapping
-  fun currentNews(): List<NewsDto> = newsService.getCurrentNews().stream()
+  fun currentNews(): List<NewsDto> = newsService.getCurrentNews()
       .map(newsMapper::map)
-      .collect(Collectors.toList())
 
   @PostMapping
   fun createNews(@RequestBody newsDto: NewsDto): NewsDto {
